@@ -1,5 +1,6 @@
 <script>
   import Disco from "./Disco.svelte";
+  import { db } from './firebase';
 
   function getRandomColor() {
     var letters = "0123456789ABCDEF";
