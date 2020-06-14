@@ -1,5 +1,6 @@
 import firebase from "firebase/app";
 import "firebase/firestore";
+import "firebase/auth";
 const firebaseConfig = {
   apiKey: "AIzaSyDTgXrEUqFh1_g-7UxZ3zpJVMrwjw6rviM",
   authDomain: "blazin-disco.firebaseapp.com",
@@ -11,5 +12,8 @@ const firebaseConfig = {
 };
 
 firebase.initializeApp(firebaseConfig);
+
+export const auth = firebase.auth();
+firebase.auth().signInAnonymously();
 
 export const db = firebase.firestore();
