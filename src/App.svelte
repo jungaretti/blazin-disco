@@ -1,30 +1,28 @@
 <script>
-	export let name;
+  export let currentColor;
+  let colorIndex = 0;
+
+  function newColor() {
+    const possible = ["#FB6107", "#F3DE2C", "#7CB518"];
+    currentColor = possible[++colorIndex % 3];
+  }
 </script>
 
-<main>
-	<h1>Hello {name}!</h1>
-	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
-</main>
-
 <style>
-	main {
-		text-align: center;
-		padding: 1em;
-		max-width: 240px;
-		margin: 0 auto;
-	}
-
-	h1 {
-		color: #ff3e00;
-		text-transform: uppercase;
-		font-size: 4em;
-		font-weight: 100;
-	}
-
-	@media (min-width: 640px) {
-		main {
-			max-width: none;
-		}
-	}
+  main {
+    background-color: var(--currentColor);
+    text-align: center;
+  }
+  img {
+    height: 200px;
+  }
 </style>
+
+<main style="--currentColor: {currentColor}">
+  <img
+    src="http://www.pngpix.com/wp-content/uploads/2016/07/PNGPIX-COM-Disco-Ball-PNG-Transparent-Image.png"
+    alt="Disco ball"
+    on:click={newColor} />
+  <br />
+  <button on:click={newColor}>New Color!</button>
+</main>
