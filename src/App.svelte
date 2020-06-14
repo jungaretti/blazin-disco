@@ -1,10 +1,10 @@
 <script>
-  export let currentColor;
-  let colorIndex = 0;
+  const possible = ["#fbda0e", "#f65c83", "#0467ac", "#a35887", "#cd9fc5", "#497260"];
+  let currentIndex = 0;
+  $: currentColor = possible[currentIndex % possible.length];
 
   function newColor() {
-    const possible = ["#FB6107", "#F3DE2C", "#7CB518"];
-    currentColor = possible[++colorIndex % 3];
+    currentIndex++;
   }
 </script>
 
@@ -20,7 +20,7 @@
 
 <main style="--currentColor: {currentColor}">
   <img
-    src="http://www.pngpix.com/wp-content/uploads/2016/07/PNGPIX-COM-Disco-Ball-PNG-Transparent-Image.png"
+    src="https://www.pngpix.com/wp-content/uploads/2016/07/PNGPIX-COM-Disco-Ball-PNG-Transparent-Image.png"
     alt="Disco ball"
     on:click={newColor} />
   <br />
