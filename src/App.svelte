@@ -1,6 +1,8 @@
 <script>
   import Disco from "./Disco.svelte";
-  import { db } from './firebase';
+  import { db } from "./firebase";
+
+  let currentColor = "black";
 
   function getRandomColor() {
     var letters = "0123456789ABCDEF";
@@ -11,16 +13,23 @@
     return color;
   }
 
-  let currentColor = getRandomColor();
+  db.collection("rooms")
+    .doc("RLvEctBd28CcMqYUETQy")
+    .onSnapshot(doc => {
+      currentColor = doc.data()["color"];
+    });
 
   function handeUpdateColor() {
-    currentColor = getRandomColor();
+    db.collection("rooms")
+      .doc("RLvEctBd28CcMqYUETQy")
+      .update({ color: getRandomColor() });
   }
 </script>
 
 <style>
   main {
     background-color: var(--currentColor);
+    transition: background-color 0.5s ease;
     text-align: center;
   }
 </style>
