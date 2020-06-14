@@ -1,10 +1,17 @@
 <script>
-  const possible = ["#fbda0e", "#f65c83", "#0467ac", "#a35887", "#cd9fc5", "#497260"];
-  let currentIndex = 0;
-  $: currentColor = possible[currentIndex % possible.length];
+  function getRandomColor() {
+    var letters = "0123456789ABCDEF";
+    var color = "#";
+    for (var i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+  }
+
+  let currentColor = getRandomColor();
 
   function newColor() {
-    currentIndex++;
+    currentColor = getRandomColor();
   }
 </script>
 
@@ -15,6 +22,9 @@
   }
   img {
     height: 200px;
+  }
+  button {
+    font-size: 1em;
   }
 </style>
 
