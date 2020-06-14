@@ -1,4 +1,6 @@
 <script>
+  import Disco from "./Disco.svelte";
+
   function getRandomColor() {
     var letters = "0123456789ABCDEF";
     var color = "#";
@@ -10,7 +12,7 @@
 
   let currentColor = getRandomColor();
 
-  function newColor() {
+  function handeUpdateColor() {
     currentColor = getRandomColor();
   }
 </script>
@@ -20,19 +22,8 @@
     background-color: var(--currentColor);
     text-align: center;
   }
-  img {
-    height: 200px;
-  }
-  button {
-    font-size: 1em;
-  }
 </style>
 
 <main style="--currentColor: {currentColor}">
-  <img
-    src="https://www.pngpix.com/wp-content/uploads/2016/07/PNGPIX-COM-Disco-Ball-PNG-Transparent-Image.png"
-    alt="Disco ball"
-    on:click={newColor} />
-  <br />
-  <button on:click={newColor}>New Color!</button>
+  <Disco on:updateColor={handeUpdateColor} />
 </main>
