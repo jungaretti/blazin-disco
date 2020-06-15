@@ -17,6 +17,7 @@
     .doc("RLvEctBd28CcMqYUETQy")
     .onSnapshot(doc => {
       currentColor = doc.data()["color"];
+      document.body.style.backgroundColor = currentColor;
     });
 
   function handeUpdateColor() {
@@ -27,13 +28,9 @@
 </script>
 
 <style>
-  main {
-    background-color: var(--currentColor);
-    transition: background-color 0.5s ease;
-    text-align: center;
-  }
+
 </style>
 
-<main style="--currentColor: {currentColor}">
+<main>
   <Disco on:updateColor={handeUpdateColor} />
 </main>
