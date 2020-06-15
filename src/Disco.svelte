@@ -15,8 +15,12 @@
     display: block;
     margin: 16px auto;
   }
+  p {
+    text-align: center;
+  }
   button {
-    font-size: 1em;
+    padding: 0.5em 1em;
+    font-size: 1.5em;
   }
 </style>
 
