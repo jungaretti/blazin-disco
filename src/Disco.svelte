@@ -9,23 +9,18 @@
 </script>
 
 <style>
-  div {
-    text-align: center;
-  }
   img {
-    width: 300px;
+    width: 400px;
     max-width: 95%;
+    display: block;
+    margin: 16px auto;
   }
   button {
     font-size: 1em;
   }
 </style>
 
-<div>
-  <img
-    src="https://www.pngpix.com/wp-content/uploads/2016/07/PNGPIX-COM-Disco-Ball-PNG-Transparent-Image.png"
-    alt="Disco ball"
-    on:click={updateColor} />
-  <br />
+<img src="/img/disco-ball.png" alt="Disco ball" on:click={updateColor} />
+<p>
   <button on:click={updateColor}>New Color!</button>
-</div>
+</p>
